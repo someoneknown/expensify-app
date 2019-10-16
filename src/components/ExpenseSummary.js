@@ -18,7 +18,7 @@ export class ExpenseSummary extends React.Component {
 const mapStatetoProps = ({ expenses, filters }) => {
     const visibleExpenese = getVisibleExpenese(expenses, filters);
     const expenseCount = visibleExpenese.length;
-    const expenseToatal = getTotalExpense(visibleExpenese);
+    const expenseTotal = getTotalExpense(visibleExpenese);
     return {
         expenseCount,
         expenseTotal

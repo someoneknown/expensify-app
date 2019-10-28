@@ -1,5 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
+import { Link } from 'react-router-dom';
 import getVisibleExpenese from '../selectors/expenses';
 import getTotalExpense from '../selectors/expense-total';
 import { connect } from 'react-redux';
@@ -8,8 +9,13 @@ export class ExpenseSummary extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Viewing {this.props.expenseCount} {this.props.expenseCount === 1 ? 'expense' : 'expenses'} totatling {numeral(this.props.expenseTotal / 100).format('$0,00.00')}</h1>
+            <div className="page-header">
+                <div className="content-container">
+                    <h1 className="page-header__title">Viewing <span>{this.props.expenseCount}</span> {this.props.expenseCount === 1 ? 'expense' : 'expenses'} totalling <span>{numeral(this.props.expenseTotal / 100).format('$0,00.00')}</span></h1>
+                    <div className="page_header__actions">
+                        <Link className="button" to="/create">Add Expense</Link>
+                    </div>
+                </div>
             </div>
         );
     }
